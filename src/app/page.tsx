@@ -1,103 +1,161 @@
-import Image from "next/image";
+import { Navbar } from '@/components/Navbar'
+import { Footer } from '@/components/Footer'
+import { Hero } from '@/components/landing/Hero'
+import { Stats } from '@/components/landing/Stats'
+import  HowItWorks  from '@/components/landing/HowItWorks'
+import { Features } from '@/components/landing/Features'
+import { PaymentFlow } from '@/components/landing/PaymentFlow'
+import { TrustedBy } from '@/components/landing/TrustedBy'
+import { FAQs } from '@/components/landing/FAQs'
+import { 
+  BoltIcon,
+  CurrencyDollarIcon,
+  GlobeAltIcon,
+  LockClosedIcon,
+  ArrowPathIcon,
+  UserCircleIcon,
+  WalletIcon,
+  QrCodeIcon,
+} from '@heroicons/react/24/outline'
+import Pricing from '@/components/landing/Pricing'
 
-export default function Home() {
+const STATS = [
+  { value: '44M+', label: 'Assets Secured' },
+  { value: '119T+', label: 'Annual Volume' },
+  { value: '98%', label: 'Success Rate' },
+  { value: '46K+', label: 'Active Users' },
+]
+
+const FEATURES = [
+  {
+    title: "Lightning Transactions",
+    description: "4000+ TPS powered by Solana blockchain",
+    icon: BoltIcon,
+  },
+  {
+    title: "Micro Fees",
+    description: "0.1% transaction fees, 100x cheaper than traditional finance",
+    icon: CurrencyDollarIcon,
+  },
+  {
+    title: "Borderless Payments",
+    description: "Support for 50+ currencies and global crypto assets",
+    icon: GlobeAltIcon,
+  },
+  {
+    title: "Bank-Grade Security",
+    description: "Military-grade encryption and multi-sig wallets",
+    icon: LockClosedIcon,
+  },
+]
+
+const STEPS = [
+  {
+    title: "Create Account",
+    description: "Sign up in 30 seconds with email or wallet",
+    icon: UserCircleIcon,
+  },
+  {
+    title: "Verify Identity",
+    description: "Instant KYC verification with AI-powered checks",
+    icon: ArrowPathIcon,
+  },
+  {
+    title: "Connect Wallet",
+    description: "Link your Solana or EVM-compatible wallet",
+    icon: WalletIcon,
+  },
+  {
+    title: "Start Transacting",
+    description: "Send/receive payments globally in seconds",
+    icon: QrCodeIcon,
+  },
+]
+
+const TRUSTED_BY = [
+   {
+      name: 'Safaricom',
+      logo: 'https://tailwindcss.com/plus-assets/img/logos/158x48/transistor-logo-gray-900.svg',
+      width: 158,
+      height: 48
+    },
+    {
+      name: 'Binance',
+      logo: 'https://tailwindcss.com/plus-assets/img/logos/158x48/reform-logo-gray-900.svg',
+      width: 158,
+      height: 48
+    },
+    {
+      name: 'Flutterwave',
+      logo: 'https://tailwindcss.com/plus-assets/img/logos/158x48/tuple-logo-gray-900.svg',
+      width: 158,
+      height: 48
+    },
+    {
+      name: 'Coinbase',
+      logo: 'https://tailwindcss.com/plus-assets/img/logos/158x48/savvycal-logo-gray-900.svg',
+      width: 158,
+      height: 48
+    },
+    {
+      name: 'Jumia',
+      logo: 'https://tailwindcss.com/plus-assets/img/logos/158x48/statamic-logo-gray-900.svg',
+      width: 158,
+      height: 48
+    },
+    {
+      name: 'Chipper',
+      logo: 'https://tailwindcss.com/plus-assets/img/logos/158x48/transistor-logo-gray-900.svg',
+      width: 158,
+      height: 48
+    },
+    {
+      name: 'Paxful',
+      logo: 'https://tailwindcss.com/plus-assets/img/logos/158x48/reform-logo-gray-900.svg',
+      width: 158,
+      height: 48
+    },
+    {
+      name: 'Yellow Card',
+      logo: 'https://tailwindcss.com/plus-assets/img/logos/158x48/tuple-logo-gray-900.svg',
+      width: 158,
+      height: 48
+    }
+  ];
+
+const FAQS = [
+  {
+    question: "How do I convert M-PESA to crypto?",
+    answer: "Instant conversion through our liquidity pools with best market rates"
+  },
+  {
+    question: "What currencies are supported?",
+    answer: "KES, USD, EUR + SOL, USDC, USDT, BTC, ETH and 50+ more"
+  },
+  {
+    question: "Is there a mobile app?",
+    answer: "Progressive Web App available with full iOS/Android support"
+  },
+  {
+    question: "How are fees calculated?",
+    answer: "0.1% for crypto, 1.5% for M-PESA (includes all charges)"
+  },
+]
+
+export default function LandingPage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+    <main className="bg-gradient-to-b from-gray-900 to-black min-h-screen">
+      {/* <Banner /> */}
+      <Navbar />
+      <Hero />
+      <TrustedBy companies={TRUSTED_BY} />
+      {/* <Stats stats={STATS} /> */}
+      <Features features={FEATURES} />
+      {/* <Pricing /> */}
+      {/* <HowItWorks /> */}
+      <PaymentFlow />
+      <FAQs faqs={FAQS} />
+      <Footer />
+    </main>
+  )
 }

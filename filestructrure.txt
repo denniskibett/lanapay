@@ -1,0 +1,31 @@
+src/
+├── app/
+│   └── (landing)/
+│       └── page.tsx              # Main landing page (current file)
+│
+├── components/
+│   ├── common/
+│   │   ├── Navbar.tsx            # Moved from components/Navbar.tsx
+│   │   └── Footer.tsx            # Moved from components/Footer.tsx
+│   │
+│   └── landing/
+│       ├── Hero.tsx
+│       ├── Stats.tsx
+│       ├── HowItWorks.tsx        # New component
+│       ├── Features.tsx
+│       ├── PaymentFlow.tsx
+│       ├── TrustedBy.tsx
+│       ├── FAQs.tsx
+│       └── Pricing.tsx
+│
+├── constants/
+│   └── landing.ts               # Holds STATS, FEATURES, etc.
+│
+public/
+├── logos/                       # Partner logos
+│   ├── safaricom.svg
+│   ├── binance.svg
+│   ├── flutterwave.svg
+│   └── ...                      
+└── images/
+    └── particles.svg            # Hero section particles
