@@ -1,6 +1,6 @@
 {
   "name": "lanapay",
-  "type": "module", 
+  "type": "module",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,6 +12,7 @@
   "dependencies": {
     "@headlessui/react": "^2.2.3",
     "@heroicons/react": "^2.2.0",
+    "@next/font": "^14.2.15",
     "@solana/pay": "^0.2.5",
     "@solana/wallet-adapter-base": "^0.9.26",
     "@solana/wallet-adapter-react": "^0.15.38",
